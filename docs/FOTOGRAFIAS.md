@@ -1,43 +1,45 @@
-# Fotografias originais a fornecer
+# Fotografias originais — conferência dos anexos
 
-O ponto único de configuração é `src/data/media.mjs`. Todos os arquivos devem ser colocados em `public/images/`. Os nomes abaixo são recomendados. Não é necessário enviar imagens artificiais para preencher os espaços.
+Os 15 arquivos recebidos em 15/10/2026 foram abertos e comparados com as capturas originais. Somente cinco fotografias e o logotipo correspondem a imagens visíveis nas referências. Nenhuma das demais fotografias foi publicada ou acrescentada aos álbuns.
 
-| Arquivo | Enquadramento e local | Tamanho recomendado |
+## Aplicadas nos mesmos locais da referência
+
+| Arquivo recebido | Espaço existente | Arquivo publicado |
 |---|---|---|
-| `hero-equipe.webp` | Equipe com medalhas, centralizada; máscara em arco no hero | 1240 × 840 ou maior |
-| `metodo-equipe.webp` | Grupo de verde/amarelo; foto sob texto inferior do método | 910 × 690 ou maior |
-| `2026-londres.webp` | Estudantes diante do pôster no LIYSF | 760 × 610 ou maior |
-| `2026-nova-york.webp` | Delegação reunida na viagem à Copernicus | 760 × 610 ou maior |
-| `impacto-gabriela.webp` | Gabriela diante do símbolo da UFRJ, retrato | 760 × 900 ou maior |
-| `impacto-yasmin.webp` | Premiação internacional, retrato | 760 × 900 ou maior |
-| `impacto-relato-julia.webp` | Retrato de Júlia Pereira com medalha | 400 × 400 ou maior |
+| `image(20261015-160720).png` | Método · Conquistar (captura 03) | `metodo-equipe.webp` |
+| `WhatsApp Image 2026-07-25 at 13.31.15.jpeg` | O presente · Nova York (captura 07) | `2026-nova-york.webp` |
+| `Gabriela Lesse.png` | Impacto · Gabriela (captura 10) | `impacto-gabriela.webp` |
+| `gabriel e yasmin medalistas na aimo.png` | Impacto · Yasmin (captura 10) | `impacto-yasmin.webp` |
+| `image(20261015-161134).png` | Impacto · relato de Júlia (captura 11) | `impacto-relato-julia.webp` |
+| `ChatGPT Image 24 de ago. de 2026, 23_38_34.png` | Marca do cabeçalho e rodapé (capturas 01 e 14) | `logo-sicma.webp` |
 
-## Álbuns (21 registros opcionais)
+As fotos usam a resolução recebida, com compressão WebP e sem alterar seu conteúdo. A marca foi reduzida para 320 × 332 px, preservando a transparência. Os recortes são feitos pelo CSS, mantendo dimensões, máscaras, sobreposições e legendas existentes.
 
-Para cada base abaixo, envie `-01.webp`, `-02.webp` e `-03.webp`, preferencialmente em 1200 × 800 px ou maior:
+## Ainda faltam duas fotografias exatas
 
-- `album-2019-china`
-- `album-2022-londres`
-- `album-2023-nova-york`
-- `album-2024-coreia`
-- `album-2025-toquio`
-- `album-2026-londres`
-- `album-2026-nova-york`
+| Arquivo preparado | Imagem necessária | Referência |
+|---|---|---|
+| `hero-equipe.webp` | Grupo menor de estudantes de uniforme branco e medalhas diante do mural azul/amarelo “Seja Luz” | 01 · abertura |
+| `2026-londres.webp` | Três estudantes de uniforme branco diante do pôster científico SICMA, no LIYSF | 07 · card Londres |
 
-Exemplo de configuração após conferir uma fotografia:
+A foto `Captura de tela 2026-08-23 174504.png` mostra uma equipe maior no mesmo mural, mas é outra fotografia. Ela não substitui a foto da abertura. Os dois espaços continuam preparados, sem requisitar arquivos inexistentes.
 
-```js
-'2026-londres': {
-  src: '/images/2026-londres.webp',
-  file: '2026-londres.webp',
-  label: 'Londres · LIYSF 2026',
-  alt: 'Descrição factual das pessoas e do contexto da imagem recebida.',
-  position: '50% 50%',
-  width: 760,
-  height: 610,
-},
-```
+## Recebidas e mantidas fora do site
 
-`position` aceita dois percentuais e altera o recorte sem mudar a proporção do espaço. As legendas, selos e overlays são HTML/CSS independentes da fotografia. A área mantém seu tamanho antes do carregamento. WebP é recomendado; JPEG, PNG e AVIF também são aceitos.
+Estas nove fotografias não aparecem nas capturas e só serão adicionadas com instrução expressa do proprietário:
 
-As abas dos álbuns já alternam os painéis e comportam os arquivos. Enquanto os registros não forem enviados, o estado vazio é intencional e corresponde à captura de referência.
+- `Captura de tela 2026-08-23 174504.png`
+- `Captura de tela 2026-08-23 174533.png`
+- `Captura de tela 2026-08-23 174627.png`
+- `Captura de tela 2026-08-23 174650.png`
+- `Captura de tela 2026-08-23 174659.png`
+- `Captura de tela 2026-08-23 174905.png`
+- `Captura de tela 2026-09-13 205952.png`
+- `equipe atual.png`
+- `equipe atual 2.png`
+
+## Configuração
+
+O ponto único de configuração das fotografias é `src/data/media.mjs`; os arquivos publicados ficam em `public/images/`. Preencha `src`, descrição factual em `alt`, dimensões reais e `position` após conferir cada original. `position` aceita dois percentuais e altera apenas o recorte. O build valida a existência do arquivo local e sua descrição.
+
+Os 21 registros opcionais dos sete álbuns continuam sem imagem, conforme o estado vazio da captura 06. Receber uma foto não autoriza incluí-la nesses álbuns.

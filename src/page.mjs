@@ -5,7 +5,7 @@ const arrow = '<span aria-hidden="true">→</span>';
 const icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m4 18 6-6 4 4 3-3 4 5"/></svg>';
 const instaIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".8" fill="currentColor"/></svg>';
 const label = (n, text) => `<div class="section-label"><i>${n}</i><span>${text}</span><b></b></div>`;
-const brand = () => '<a class="brand" href="#inicio" aria-label="SICMA — início"><span class="brand-symbol" aria-hidden="true"><i>S</i></span><strong>SICMA</strong></a>';
+const brand = () => '<a class="brand" href="#inicio" aria-label="SICMA — início"><img class="brand-symbol" src="/images/logo-sicma.webp" width="25" height="34" alt="" aria-hidden="true"><strong>SICMA</strong></a>';
 const external = (url, text, cls='text-link') => `<a class="${cls}" href="${escape(url)}" target="_blank" rel="noopener noreferrer">${text}${arrow}</a>`;
 const noticeButton = (text, title, detail) => `<button type="button" class="text-link" data-notice-title="${escape(title)}" data-notice-detail="${escape(detail)}">${text}${arrow}</button>`;
 function photograph(id, cls='', caption='') {

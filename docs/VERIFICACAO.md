@@ -21,7 +21,7 @@ Foram executadas rodadas iterativas de capturas e verificações antes da public
 | 07 | Londres / Nova York, cards fotográficos com proporções preservadas |
 | 08 | Título deslocado, professores em roxo e ameixa, formações e ornamentos |
 | 09 | Mosaico de seis trajetórias, primeiro card duplo e Rebeca na última linha |
-| 10 | Título, duas fotos verticais reservadas, depoimentos e legendas |
+| 10 | Título, duas fotos verticais originais, depoimentos e legendas |
 | 11 | Continuação dos relatos, cartão horizontal e transição para reconhecimento |
 | 12 | Grade editorial conectada, dez matérias, metadados e divisórias |
 | 13 | Últimas matérias e transição para CTA roxo com grid |
@@ -46,9 +46,13 @@ O conteúdo principal de desktop mantém a largura editorial próxima de 770 px 
 
 ## Pendências reais
 
-1. Fotografias originais: sete principais e, opcionalmente, três registros de cada um dos sete álbuns. Lista e instruções em [FOTOGRAFIAS.md](FOTOGRAFIAS.md).
+1. Duas fotografias originais: equipe da abertura e três estudantes diante do pôster no LIYSF. Cinco fotos e a marca original já foram integradas; os outros nove anexos ficaram fora da publicação. Os álbuns permanecem vazios como na referência, sem autorização para adicionar fotografias. Mapeamento em [FOTOGRAFIAS.md](FOTOGRAFIAS.md).
 2. Aprovação editorial das formações históricas e dos dados transcritos. O card de Gabriel mantém `Estatística — UFF` por fidelidade ao print. A reprodução não equivale a uma atualização de currículo.
 3. Endereços originais de alguns relatos pessoais. Os botões correspondentes informam claramente essa situação. As dez notícias têm endereços identificados nos veículos indicados.
-4. Arquivo original de logomarca e identificação exata das fontes não foram fornecidos. O símbolo foi reconstruído em CSS/SVG; a tipografia foi aproximada por comparação. A ausência de fotos e desses arquivos impede afirmar identidade pixel a pixel.
+4. Identificação exata das fontes não fornecida. A tipografia foi aproximada por comparação; a marca original já aparece no cabeçalho e rodapé. As duas fotografias pendentes e a tipografia impedem afirmar identidade pixel a pixel.
 
 Nenhum login, banco de dados, quiz, rastreamento ou formulário foi acrescentado.
+
+## Fotografias recebidas em 15/10/2026
+
+Os 15 anexos foram abertos individualmente e comparados às capturas 01, 03, 07, 10 e 11. Foram aplicadas somente cinco fotografias correspondentes e a marca. Os arquivos publicados são derivados WebP para desempenho, sem alterar as fotografias; os originais recebidos foram preservados. O recorte usa `object-fit` e mantém as máscaras e proporções da referência.

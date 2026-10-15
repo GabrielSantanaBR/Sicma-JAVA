@@ -10,8 +10,17 @@ page.on('pageerror',error=>errors.push(String(error)));
 page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
 page.on('response',r=>{if(r.status()>=400&&r.url().startsWith(url))badResponses.push(`${r.status()} ${r.url()}`);});
 const results=[];
+async function decodeImages() {
+ const images=page.locator('img');
+ for(const img of await images.all()){
+  await img.scrollIntoViewIfNeeded();
+  await img.evaluate(el=>el.decode());
+  assert.ok(await img.evaluate(el=>el.complete&&el.naturalWidth>0&&el.naturalHeight>0),`image decodes: ${await img.getAttribute('src')}`);
+ }
+}
 try {
  assert.equal((await page.goto(url,{waitUntil:'networkidle'})).status(),200);await page.evaluate(()=>document.fonts.ready);
+ await decodeImages();results.push(`${await page.locator('[data-media].has-image').count()} original photographs and header/footer logos load and decode`);
  assert.equal(await page.locator('h1').count(),1);
  assert.equal(await page.locator('[role="tab"]').count(),7);
  for(let i=0;i<7;i++){await page.locator('[role="tab"]').nth(i).click();assert.equal(await page.locator('[role="tab"][aria-selected="true"]').count(),1);assert.equal(await page.locator('[role="tabpanel"]:visible').count(),1);const controls=await page.locator('[role="tab"]').nth(i).getAttribute('aria-controls');assert.equal(await page.locator(`#${controls}`).isVisible(),true);}
@@ -33,6 +42,7 @@ try {
  for(const width of [320,390,600,768,1024,1440,1900]){
   await page.setViewportSize({width,height:width>800?990:844});
   await page.goto(url,{waitUntil:'networkidle'});await page.evaluate(()=>document.fonts.ready);
+  await decodeImages();
   const bodyWidth=await page.evaluate(()=>document.documentElement.scrollWidth);assert.ok(bodyWidth<=width,`no body overflow at ${width}: ${bodyWidth}; `+JSON.stringify(await page.locator('body *').evaluateAll(els=>els.filter(e=>e.getBoundingClientRect().right>innerWidth+1&&getComputedStyle(e).position!=='absolute'&&!e.closest('.marquee,.album-tabs,.hero,.closing,.photograph,.orbit')).map(e=>({tag:e.tagName,cls:e.className,right:e.getBoundingClientRect().right})))));
   const headingOverflow=await page.locator('h1,h2,h3').evaluateAll(els=>els.filter(el=>el.getBoundingClientRect().right>innerWidth+1||el.getBoundingClientRect().left<0).map(el=>el.textContent));assert.deepEqual(headingOverflow,[],`headings contained at ${width}`);
   if(width<=800){const toggle=page.locator('.menu-toggle');await toggle.click();assert.equal(await toggle.getAttribute('aria-expanded'),'true');await page.locator('#navigation a[href="#albuns"]').click();assert.equal(await toggle.getAttribute('aria-expanded'),'false');await toggle.click();await toggle.press('Escape');assert.equal(await toggle.getAttribute('aria-expanded'),'false');await page.evaluate(()=>scrollTo(0,0));}

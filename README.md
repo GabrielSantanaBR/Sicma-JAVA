@@ -1,6 +1,6 @@
 # SICMA — Matemática que abre caminhos
 
-Reprodução da página SICMA nas 14 capturas autorizadas do pacote de 15/10/2026. Todas as seções e a ordem editorial foram reconstruídas. Fotografias originais permanecem em espaços reservados, sem imagens de banco, IA ou recortes dos screenshots.
+Reprodução da página SICMA nas 14 capturas autorizadas do pacote de 15/10/2026. Todas as seções e a ordem editorial foram reconstruídas. Cinco fotografias originais e o logotipo enviados pelo proprietário foram aplicados somente nos locais identificados nas referências. Duas fotos principais ainda estão em espaços reservados.
 
 ## Executar
 
@@ -42,7 +42,7 @@ O GitHub Actions executa as verificações e gera um artefato `sicma-visual-qa` 
 
 ## Conteúdo e limites de reprodução
 
-Os textos reproduzem o pacote, sem alterar formações históricas automaticamente. O card de Gabriel mantém `Estatística — UFF` para fidelidade à referência e precisa de revisão editorial do proprietário. O nome Júlia Pereira foi conferido na captura 11. As fontes escolhidas aproximam o desenho dos prints; os arquivos originais de tipografia e logomarca não foram fornecidos. O símbolo SICMA foi reconstruído em CSS/SVG.
+Os textos reproduzem o pacote, sem alterar formações históricas automaticamente. O card de Gabriel mantém `Estatística — UFF` para fidelidade à referência e precisa de revisão editorial do proprietário. O nome Júlia Pereira foi conferido na captura 11. As fontes escolhidas aproximam o desenho dos prints; os arquivos originais de tipografia não foram fornecidos. A marca do cabeçalho e do rodapé usa o arquivo original recebido. O favicon vetorial permanece a reconstrução inicial.
 
 Os links das dez matérias foram localizados nos veículos correspondentes. A redação e as datas exibidas seguem a referência visual; os títulos completos dos artigos podem ser diferentes. Links de relatos ainda sem publicação identificada abrem um aviso honesto, sem fingir um destino externo. Não há cadastro, rastreamento, banco ou cookies adicionados.
 
