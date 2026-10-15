@@ -56,3 +56,5 @@ Nenhum login, banco de dados, quiz, rastreamento ou formulário foi acrescentado
 ## Fotografias recebidas em 15/10/2026
 
 Os 15 anexos foram abertos individualmente e comparados às capturas 01, 03, 07, 10 e 11. Foram aplicadas somente cinco fotografias correspondentes e a marca. Os arquivos publicados são derivados WebP para desempenho, sem alterar as fotografias; os originais recebidos foram preservados. O recorte usa `object-fit` e mantém as máscaras e proporções da referência.
+
+A integração das fotos passou pelo [teste de navegador e sete larguras](https://github.com/GabrielSantanaBR/Sicma-JAVA/actions/runs/38768542272), incluindo decodificação das imagens, abas, âncoras, menu móvel e diálogos. A comparação visual resultou em ajustes do degradê do card Conquistar e da miniatura de Júlia.
