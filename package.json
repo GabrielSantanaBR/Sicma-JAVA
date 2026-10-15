@@ -1,12 +1,19 @@
 {
-  "name": "sicma-mathema",
-  "version": "1.0.0",
+  "name": "sicma",
+  "version": "2.0.0",
   "private": true,
-  "description": "Portal educacional e laboratorio de matematica olimpica — SICMA MATHEMA",
+  "type": "module",
+  "description": "SICMA — Matemática que abre caminhos. Reprodução das referências autorizadas.",
   "scripts": {
-    "start": "node server.js",
-    "check": "node --check server.js && node --check public/app.js",
-    "test": "node --test"
+    "build": "node scripts/build.mjs",
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check src/app.js && node --check src/page.mjs && node --check scripts/build.mjs",
+    "test": "npm run build && node --test test/*.test.mjs"
   },
-  "engines": {"node": ">=20"}
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
 }

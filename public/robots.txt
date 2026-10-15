@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sicma-web-production.up.railway.app/sitemap.xml

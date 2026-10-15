@@ -1,0 +1,33 @@
+name: Verify SICMA
+on:
+  push:
+    branches: [main, implementation/reproducao-fiel-sicma]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - name: Browser interactions and 14 reference captures
+        run: |
+          npm start > /tmp/sicma-server.log 2>&1 &
+          for i in 1 2 3 4 5; do curl -fsS http://127.0.0.1:3000/health && break || sleep 1; done
+          node test/browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sicma-visual-qa
+          path: qa/
+          retention-days: 14
