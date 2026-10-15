@@ -1,4 +1,5 @@
 import {cp, mkdir, readFile, rm, writeFile, access} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
 import {media} from '../src/data/media.mjs';
 import {page} from '../src/page.mjs';
 
@@ -12,6 +13,7 @@ for (const [id, item] of Object.entries(media)) {
 await rm(new URL('../dist', import.meta.url), {recursive: true, force: true});
 await mkdir(new URL('../dist', import.meta.url), {recursive: true});
 await cp(new URL('../public', import.meta.url), new URL('../dist', import.meta.url), {recursive: true});
+const assetHashes = {};
 for (const name of ['styles.css', 'app.js']) {
   let content = await readFile(new URL(`../src/${name}`, import.meta.url), 'utf8');
   if (name === 'styles.css') for (const [id, item] of Object.entries(media)) {
@@ -19,6 +21,10 @@ for (const name of ['styles.css', 'app.js']) {
     content += `\n.position-${id}{object-position:${item.position}}`;
   }
   await writeFile(new URL(`../dist/${name}`, import.meta.url), content);
+  assetHashes[name] = createHash('sha256').update(content).digest('hex').slice(0, 12);
 }
-await writeFile(new URL('../dist/index.html', import.meta.url), page());
+const html = page()
+  .replace('href="/styles.css"', `href="/styles.css?v=${assetHashes['styles.css']}"`)
+  .replace('src="/app.js"', `src="/app.js?v=${assetHashes['app.js']}"`);
+await writeFile(new URL('../dist/index.html', import.meta.url), html);
 console.log(`SICMA: static build complete; ${Object.keys(media).length} media slots validated.`);

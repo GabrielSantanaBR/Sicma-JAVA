@@ -10,6 +10,7 @@ after(()=>new Promise(resolve=>server.close(resolve)));
 test('home, assets and 28 prepared media slots load without external resources',async()=>{
  const response=await fetch(base);assert.equal(response.status,200);const html=await response.text();
  assert.match(html,/Matemática<br>que/);assert.equal((html.match(/role="tab"/g)||[]).length,7);
+ assert.match(html,/\/styles\.css\?v=[a-f0-9]{12}/);assert.match(html,/\/app\.js\?v=[a-f0-9]{12}/);
  assert.equal((html.match(/class="student student-/g)||[]).length,6);
  assert.equal((html.match(/class="timeline-year"/g)||[]).length,7);
  assert.equal(Object.keys(media).length,28);
