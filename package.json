@@ -1,0 +1,12 @@
+{
+  "name": "sicma-mathema",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portal educacional e laboratorio de matematica olimpica — SICMA MATHEMA",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/app.js",
+    "test": "node --test"
+  },
+  "engines": {"node": ">=20"}
+}
