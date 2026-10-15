@@ -1,0 +1,78 @@
+name: Inspect original SICMA website
+on:
+  push:
+    branches:
+      - inspection/original-site-capture
+    paths:
+      - .github/workflows/inspect-sicma.yml
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check site accessibility
+        shell: bash
+        run: |
+          mkdir -p .original-capture
+          URL="https://projeto-sicma.tudoido521.chatgpt.site/"
+          echo "Original: $URL" > .original-capture/diagnostics.txt
+          curl -L --max-time 35 -sS -D .original-capture/headers.txt -o .original-capture/raw.html \
+            -w 'HTTP:%{http_code} RESPONSE_URL:%{url_effective} BYTES:%{size_download}\n' "$URL" \
+            | tee -a .original-capture/diagnostics.txt || true
+          head -c 1500 .original-capture/raw.html | tr '\n' ' ' || true
+      - name: Install browser
+        run: |
+          npm install --no-save --ignore-scripts playwright@1.56.1
+          npx playwright install chromium --with-deps
+      - name: Inspect design and screenshot
+        run: |
+          node <<'JS'
+          const fs=require('fs');
+          const {chromium}=require('playwright');
+          (async () => {
+            const browser=await chromium.launch({headless:true});
+            const page=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});
+            const logs=[];
+            page.on('console',msg=>logs.push('console '+msg.type()+' '+msg.text().slice(0,500)));
+            page.on('pageerror',err=>logs.push('error '+String(err)));
+            try{
+              const resp=await page.goto('https://projeto-sicma.tudoido521.chatgpt.site/#inicio',{waitUntil:'domcontentloaded',timeout:40000});
+              logs.push('status '+resp?.status()+' URL '+page.url());
+              await page.waitForTimeout(3000);
+              await page.screenshot({path:'.original-capture/screenshot.png',fullPage:true,animations:'disabled',timeout:25000});
+              fs.writeFileSync('.original-capture/rendered.html',await page.content());
+              const data=await page.evaluate(()=>{
+                const selectors=['header','nav','main','section','h1','h2','h3','p','a','button','.card','[class*=card]','img'];
+                let els=[];
+                for(const sel of selectors) for(const e of [...document.querySelectorAll(sel)].slice(0,100)){
+                  const s=getComputedStyle(e), b=e.getBoundingClientRect();
+                  els.push({selector:sel,tag:e.tagName,class:e.className?.toString().slice(0,160),text:e.innerText?.slice(0,160),src:e.currentSrc||e.src||'',style:{color:s.color,bg:s.backgroundColor,font:s.fontFamily,fontSize:s.fontSize,fontWeight:s.fontWeight,radius:s.borderRadius,border:s.border,shadow:s.boxShadow,padding:s.padding,display:s.display},rect:{x:Math.round(b.x),y:Math.round(b.y),w:Math.round(b.width),h:Math.round(b.height)}});
+                }
+                return {title:document.title,body:document.body.innerText.slice(0,12000),elements:els,imageSrcs:[...document.images].map(x=>({src:x.currentSrc||x.src,alt:x.alt})),cssLinks:[...document.styleSheets].map(s=>s.href)};
+              });
+              fs.writeFileSync('.original-capture/design.json',JSON.stringify(data,null,2));
+              logs.push('capture_title '+data.title);
+              logs.push('image_count '+data.imageSrcs.length);
+            } catch(err){logs.push('capture error '+String(err));}
+            fs.writeFileSync('.original-capture/browser-log.txt',logs.join('\n'));
+            console.log(logs.join('\n'));
+            await browser.close();
+          })().catch(e=>{console.log(String(e));process.exit(0)});
+          JS
+      - name: Save capture in inspection branch
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .original-capture
+          git commit -m "chore: store original-site inspection evidence" || true
+          git push origin HEAD:inspection/original-site-capture || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sicma-original-capture
+          path: .original-capture/
