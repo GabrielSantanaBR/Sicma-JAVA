@@ -13,7 +13,12 @@ await rm(new URL('../dist', import.meta.url), {recursive: true, force: true});
 await mkdir(new URL('../dist', import.meta.url), {recursive: true});
 await cp(new URL('../public', import.meta.url), new URL('../dist', import.meta.url), {recursive: true});
 for (const name of ['styles.css', 'app.js']) {
-  await writeFile(new URL(`../dist/${name}`, import.meta.url), await readFile(new URL(`../src/${name}`, import.meta.url)));
+  let content = await readFile(new URL(`../src/${name}`, import.meta.url), 'utf8');
+  if (name === 'styles.css') for (const [id, item] of Object.entries(media)) {
+    if (!/^\d{1,3}% \d{1,3}%$/.test(item.position)) throw new Error(`Invalid object position: ${id}`);
+    content += `\n.position-${id}{object-position:${item.position}}`;
+  }
+  await writeFile(new URL(`../dist/${name}`, import.meta.url), content);
 }
 await writeFile(new URL('../dist/index.html', import.meta.url), page());
 console.log(`SICMA: static build complete; ${Object.keys(media).length} media slots validated.`);

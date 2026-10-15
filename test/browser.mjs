@@ -24,7 +24,7 @@ try {
  ['01-hero','#inicio',0],['02-projeto','#projeto',-183],['03-metodo','#metodo',-32],
  ['04-numeros','.numbers',-103],['05-trajetoria','#ano-2022',-67],['06-albuns','#albuns',-99],
  ['07-presente','#presente',-55],['08-professores','#pessoas',-135],['09-alunos','.students-heading',-66],
- ['10-impacto','#impacto',135],['11-relatos','.horizontal-testimony',-473],['12-noticias','#reconhecimento',-9],
+ ['10-impacto','#impacto',55],['11-relatos','.horizontal-testimony',-473],['12-noticias','#reconhecimento',-9],
  ['13-noticias-cta','.closing',-602],['14-cta-rodape','.closing',-249],
  ];
  const positions={};
