@@ -8,7 +8,7 @@ A branch `backup/pre-copia-sicma-2026-10-15` preserva a main anterior em `b3b581
 
 ## Comparação visual
 
-Foram executadas quatro rodadas de capturas e verificações antes da publicação. Ajustes incluíram família e largura das fontes, quebras do título do projeto, altura do card Investigar, posicionamento do hero, formação dos professores, microtipografia e quebra do título de álbuns na tela de 320 px.
+Foram executadas rodadas iterativas de capturas e verificações antes da publicação. Ajustes incluíram família e largura das fontes, quebras do título do projeto, altura do card Investigar, posicionamento do hero, formação dos professores, microtipografia e quebra do título de álbuns na tela de 320 px.
 
 | Referência | Elementos conferidos |
 |---|---|
