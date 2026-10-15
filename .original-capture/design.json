@@ -1,0 +1,223 @@
+{
+  "title": "Sign in required",
+  "body": "Log in to access\nContinue with ChatGPT\nThis site uses ChatGPT to securely log you in. You can review OpenAI’s Privacy Policy.",
+  "elements": [
+    {
+      "selector": "main",
+      "tag": "MAIN",
+      "class": "wrap",
+      "text": "Log in to access\nContinue with ChatGPT\nThis site uses ChatGPT to securely log you in. You can review OpenAI’s Privacy Policy.",
+      "src": "",
+      "style": {
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "radius": "0px",
+        "border": "0px none rgb(255, 255, 255)",
+        "shadow": "none",
+        "padding": "24px 20px",
+        "display": "flex"
+      },
+      "rect": {
+        "x": 0,
+        "y": 245,
+        "w": 1440,
+        "h": 411
+      }
+    },
+    {
+      "selector": "h1",
+      "tag": "H1",
+      "class": "title",
+      "text": "Log in to access",
+      "src": "",
+      "style": {
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "fontSize": "24px",
+        "fontWeight": "590",
+        "radius": "0px",
+        "border": "0px none rgb(255, 255, 255)",
+        "shadow": "none",
+        "padding": "0px",
+        "display": "block"
+      },
+      "rect": {
+        "x": 339,
+        "y": 370,
+        "w": 762,
+        "h": 28
+      }
+    },
+    {
+      "selector": "a",
+      "tag": "A",
+      "class": "brand",
+      "text": "",
+      "src": "",
+      "style": {
+        "color": "rgb(158, 158, 255)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "radius": "0px",
+        "border": "0px none rgb(158, 158, 255)",
+        "shadow": "none",
+        "padding": "0px",
+        "display": "block"
+      },
+      "rect": {
+        "x": 20,
+        "y": 20,
+        "w": 18,
+        "h": 18
+      }
+    },
+    {
+      "selector": "a",
+      "tag": "A",
+      "class": "button",
+      "text": "Continue with ChatGPT",
+      "src": "",
+      "style": {
+        "color": "rgb(13, 13, 13)",
+        "bg": "rgb(255, 255, 255)",
+        "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "590",
+        "radius": "100px",
+        "border": "0px none rgb(13, 13, 13)",
+        "shadow": "none",
+        "padding": "0px 37px",
+        "display": "flex"
+      },
+      "rect": {
+        "x": 568,
+        "y": 422,
+        "w": 304,
+        "h": 52
+      }
+    },
+    {
+      "selector": "a",
+      "tag": "A",
+      "class": "",
+      "text": "Privacy Policy",
+      "src": "",
+      "style": {
+        "color": "rgb(175, 175, 175)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "radius": "0px",
+        "border": "0px none rgb(175, 175, 175)",
+        "shadow": "none",
+        "padding": "0px",
+        "display": "inline"
+      },
+      "rect": {
+        "x": 754,
+        "y": 515,
+        "w": 80,
+        "h": 14
+      }
+    },
+    {
+      "selector": "img",
+      "tag": "IMG",
+      "class": "",
+      "text": "",
+      "src": "https://projeto-sicma.tudoido521.chatgpt.site/_sites/dispatch-assets/openai-logo.png",
+      "style": {
+        "color": "rgb(158, 158, 255)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "radius": "0px",
+        "border": "0px none rgb(158, 158, 255)",
+        "shadow": "none",
+        "padding": "0px",
+        "display": "block"
+      },
+      "rect": {
+        "x": 20,
+        "y": 20,
+        "w": 18,
+        "h": 18
+      }
+    },
+    {
+      "selector": "img",
+      "tag": "IMG",
+      "class": "mark",
+      "text": "",
+      "src": "https://projeto-sicma.tudoido521.chatgpt.site/_sites/dispatch-assets/openai-logo.png",
+      "style": {
+        "color": "rgb(13, 13, 13)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "590",
+        "radius": "0px",
+        "border": "0px none rgb(13, 13, 13)",
+        "shadow": "none",
+        "padding": "0px",
+        "display": "block"
+      },
+      "rect": {
+        "x": 605,
+        "y": 439,
+        "w": 18,
+        "h": 18
+      }
+    },
+    {
+      "selector": "img",
+      "tag": "IMG",
+      "class": "",
+      "text": "",
+      "src": "https://projeto-sicma.tudoido521.chatgpt.site/_sites/dispatch-assets/401-petbouncer-black.gif",
+      "style": {
+        "color": "rgb(255, 255, 255)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "font": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "radius": "0px",
+        "border": "0px none rgb(255, 255, 255)",
+        "shadow": "none",
+        "padding": "0px",
+        "display": "block"
+      },
+      "rect": {
+        "x": 73,
+        "y": 95,
+        "w": 1294,
+        "h": 863
+      }
+    }
+  ],
+  "imageSrcs": [
+    {
+      "src": "https://projeto-sicma.tudoido521.chatgpt.site/_sites/dispatch-assets/openai-logo.png",
+      "alt": "ChatGPT"
+    },
+    {
+      "src": "https://projeto-sicma.tudoido521.chatgpt.site/_sites/dispatch-assets/openai-logo.png",
+      "alt": ""
+    },
+    {
+      "src": "https://projeto-sicma.tudoido521.chatgpt.site/_sites/dispatch-assets/401-petbouncer-black.gif",
+      "alt": ""
+    }
+  ],
+  "cssLinks": [
+    "https://projeto-sicma.tudoido521.chatgpt.site/_sites/dispatch-assets/status.css"
+  ]
+}
