@@ -28,7 +28,7 @@ export const students = [
   {name: 'Kauan Leandro', role: 'Delegações · Coreia e Japão', education: 'Experiência olímpica internacional', text: 'Depois da Coreia, seguiu para o Japão com a confiança de quem aprende a transformar dedicação, foco e trabalho coletivo em novos objetivos.', source: 'Relato em Povo na Rua', news: 4},
   {name: 'Gabriel Bezerra de Santana', role: 'Medalhista · Exatas e tecnologia', education: 'Estatística — UFF', text: 'Selecionado para Engenharia Elétrica na Unicamp e Ciência da Computação na USP, escolheu cursar Estatística na UFF — uma decisão construída entre olimpíadas, dados e novas possibilidades.', source: 'Relato em O Dia', news: 1},
   {name: 'Luísa Querido', role: 'Ex-aluna · Ciência de Dados', education: 'Ciência de Dados — IMPA Tech', text: 'Integrante da primeira turma do IMPA Tech, seguiu pela área de Ciência de Dados e reconhece no SICMA uma base decisiva para aprender, aceitar desafios e ampliar horizontes.', source: 'Relato em O Dia', news: 6},
-  {name: 'Rebeca Alves Nunes', role: 'Ex-aluna · Pesquisa matemática', education: 'Matemática — UFRRJ · Mestrado em Modelagem Matemática e Computacional', text: 'Do Programa de Verão do IMPA à graduação em Matemática na UFRRJ, avançou para o mestrado em Modelagem Matemática e Computacional.', source: 'Relato em UFRRJ', news: 8},
+  {name: 'Rebeca Alves Nunes', role: 'Ex-aluna · Pesquisa matemática', education: 'Matemática — UFRRJ · Mestrado em Modelagem Matemática e Computacional', text: 'Do Programa de Verão do IMPA à graduação em Matemática na UFRRJ, avançou para o mestrado em Modelagem Matemática e Computacional.', source: 'Relato em UFRRJ'},
 ];
 // Headlines and dates reproduce the supplied captures. Never guess an article URL.
 export const news = [
